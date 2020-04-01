@@ -1,0 +1,9 @@
+COLUMN TABLE "xsodata_sqlexit.db::users" 
+(
+   "userid"    NVARCHAR(40), 
+   "firstname" NVARCHAR(100),
+   "lastname" NVARCHAR(200),
+   "created_on"  TIMESTAMP,
+   "changed_on"  TIMESTAMP,
+   PRIMARY KEY ("userid")
+)

@@ -1,0 +1,5 @@
+service namespace "xsodata_sqlexit.api"
+{
+"xsodata_sqlexit.db::users" as "users"
+	create using "xsodata_sqlexit.db::SP_USERS_CREATE";
+}

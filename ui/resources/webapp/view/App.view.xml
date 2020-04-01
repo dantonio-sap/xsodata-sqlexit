@@ -1,0 +1,43 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ui.ui.controller.App" displayBlock="true">
+	<App id="idAppControl">
+		<pages>
+			<Page title="{i18n>title}" floatingFooter="true">
+				<content>
+				    
+				    <sap.ui.layout.form:Form xmlns:sap.ui.layout.form="sap.ui.layout.form" editable="true" id="form0">
+				        <sap.ui.layout.form:formContainers>
+				            <sap.ui.layout.form:FormContainer title="New User" id="container0">
+				                <sap.ui.layout.form:formElements>
+				                    <sap.ui.layout.form:FormElement label="User ID">
+				                        <sap.ui.layout.form:fields>
+				                            <Input width="100%" id="inputID" value="{new>/userid}"/>
+				                        </sap.ui.layout.form:fields>
+				                    </sap.ui.layout.form:FormElement>
+				                    <sap.ui.layout.form:FormElement label="First Name">
+				                        <sap.ui.layout.form:fields>
+				                            <Input width="100%" id="inputFirstName" value="{new>/firstname}"/>
+				                        </sap.ui.layout.form:fields>
+				                    </sap.ui.layout.form:FormElement>
+				                    <sap.ui.layout.form:FormElement label="Last Name">
+				                        <sap.ui.layout.form:fields>
+				                            <Input width="100%" id="inputLastName" value="{new>/lastname}"/>
+				                        </sap.ui.layout.form:fields>
+				                    </sap.ui.layout.form:FormElement>
+				                </sap.ui.layout.form:formElements>
+				            </sap.ui.layout.form:FormContainer>
+				        </sap.ui.layout.form:formContainers>
+				        <sap.ui.layout.form:layout>
+				            <sap.ui.layout.form:ResponsiveGridLayout id="layout0"/>
+				        </sap.ui.layout.form:layout></sap.ui.layout.form:Form>
+				</content>
+				<footer>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<Button text="Save" type="Accept" width="100px" id="btnSave" press="onSavePress"/>
+					</Toolbar>
+					
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

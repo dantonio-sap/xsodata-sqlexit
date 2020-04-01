@@ -1,0 +1,21 @@
+PROCEDURE "xsodata_sqlexit.db::SP_USERS_CREATE"
+	(IN new "xsodata_sqlexit.db::users", OUT error "xsodata_sqlexit.db::error") 
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   AS
+	LV_USERID nvarchar(40); 
+    LV_FIRSTNAME nvarchar(100);
+    LV_LASTNAME nvarchar(200);
+BEGIN
+	DECLARE EXIT HANDLER FOR SQLEXCEPTION 
+	error = SELECT 400 AS HTTP_STATUS_CODE, ::SQL_ERROR_CODE AS ERROR_MESSAGE, ::SQL_ERROR_MESSAGE AS DETAIL FROM "xsodata_sqlexit.db::DUMMY";
+	
+	SELECT "userid","firstname","lastname"
+		INTO LV_USERID, LV_FIRSTNAME, LV_LASTNAME 
+		FROM :new;
+	
+	INSERT INTO "xsodata_sqlexit.db::users" 
+		("userid","firstname","lastname","created_on")
+		values ( LV_USERID, LV_FIRSTNAME, LV_LASTNAME, CURRENT_TIMESTAMP );
+	COMMIT;
+END

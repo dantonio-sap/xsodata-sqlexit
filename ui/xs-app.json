@@ -1,0 +1,13 @@
+{
+	"welcomeFile": "webapp/index.html",
+	"authenticationMethod": "none",
+	"routes": [
+		{
+			"source": "(.*)(.xsodata)",
+			"destination": "core-api"
+		}, {
+    		"source": "^/(.*)$",
+    		"localDir" : "resources"
+		}		
+	]
+}
